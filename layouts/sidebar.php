@@ -52,47 +52,56 @@
                           </p>
                       </a>
                   </li>
-                  <li class="nav-item">
-                      <a href="testing.php" class="nav-link">
-                          <i class="nav-icon fas fa-table"></i>
-                          <p>
-                              Data Testing
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="perhitungan.php" class="nav-link">
-                          <i class="nav-icon fas fa-folder-tree"></i>
-                          <p>
-                              Perhitungan C4.5
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="kondisi.php" class="nav-link">
-                          <i class="nav-icon fas fa-server"></i>
-                          <p>
-                              Pengujian
-                          </p>
-                      </a>
-                  </li>
+                  <li class="nav-header">Klasifikasi</li>
                   <li class="nav-item">
                       <a href="#" class="nav-link">
-                          <i class="nav-icon fas fa-flask"></i>
+                          <i class="nav-icon fas fa-folder-tree"></i>
                           <p>
-                              Prediksi
+                              Perhitungan C.45
                               <i class="fas fa-angle-left right"></i>
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="admin.php" class="nav-link">
+                              <a href="perhitungan.php" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
-                                  <p>Admin</p>
+                                  <p>Perhitungan</p>
+                              </a>
+                          </li>
+                      </ul>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="pohon_keputusan.php" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Pohon Keputusan</p>
                               </a>
                           </li>
                       </ul>
                   </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-table"></i>
+                          <p>
+                              Prediksi C.45
+                              <i class="fas fa-angle-left right"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="prediksi.php" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Prediksi</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="hasil_prediksi.php" class="nav-link">
+                                  <i class="far fa-circle nav-icon"></i>
+                                  <p>Hasil Prediksi</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="nav-header">Lainnya</li>
                   <li class="nav-item">
                       <a href="#" class="nav-link">
                           <i class="nav-icon fas fa-cog"></i>

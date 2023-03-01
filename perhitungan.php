@@ -50,7 +50,7 @@ include 'algoritma.php';
                             <h3 class="card-title">Tabel Keputusan</h3>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
+                        <div class="card-body table-responsive p-3">
 
                             <table class="table table-bordered text-nowrap text-center">
                                 <thead>

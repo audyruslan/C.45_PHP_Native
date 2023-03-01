@@ -1,5 +1,4 @@
 <?php
-
 // Total Data
 $totalData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training"));
 $totalIPA = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE hasil = 'IPA'"));
@@ -11,7 +10,6 @@ $minatIPA = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE
 $hasilIPAMinatIPA = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE hasil = 'IPA' AND minat = 'IPA'"));
 $hasilIPSMinatIPA = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE hasil = 'IPS' AND minat = 'IPA'"));
 $EntropyMinatIPA = (-$hasilIPAMinatIPA / $minatIPA) * log($hasilIPAMinatIPA / $minatIPA, 2) + (-$hasilIPSMinatIPA / $minatIPA) * log($hasilIPSMinatIPA / $minatIPA, 2);
-
 
 // Atribut Minat IPS
 $minatIPS = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE minat = 'IPS'"));
@@ -72,3 +70,12 @@ $NilaiIPSinggi = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training 
 $hasilIPANilaiTinggi = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE hasil = 'IPA' AND ips_rata >= 90"));
 $hasilIPSNilaiTinggi = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE hasil = 'IPS' AND ips_rata >= 90"));
 $EntropyNilaiIPSinggi = (-$hasilIPANilaiTinggi / $NilaiIPSinggi) * log($hasilIPANilaiTinggi / $NilaiIPSinggi, 2) + (-$hasilIPSNilaiTinggi / $NilaiIPSinggi) * log($hasilIPSNilaiTinggi / $NilaiIPSinggi, 2);
+
+// Algoritma C.45
+function miningC45($atribut, $nilai_atribut)
+{
+    perhitunganC45($atribut, $nilai_atribut);
+    insertAtributPohonKeputusan($atribut, $nilai_atribut);
+    getInfGainMax($atribut, $nilai_atribut);
+    replaceNull();
+}
