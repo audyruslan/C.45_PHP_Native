@@ -30,9 +30,11 @@ include 'algoritma.php';
                         <li class="breadcrumb-item active">Perhitungan C4.5</li>
                     </ol>
                 </div><!-- /.col -->
-            </div><!-- /.row -->
+            </div>
+            <!-- /.row -->
             <hr>
-        </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
     </div>
 
     <section class="content">
@@ -55,6 +57,7 @@ include 'algoritma.php';
                             <table class="table table-bordered text-nowrap text-center">
                                 <thead>
                                     <tr>
+                                        <th>Atribut</th>
                                         <th>Nilai Atribut</th>
                                         <th>Jumlah Data</th>
                                         <th>Jumlah IPA</th>
@@ -63,131 +66,22 @@ include 'algoritma.php';
                                         <th>Gain</th>
                                     </tr>
                                 </thead>
-                                <!-- Minat -->
-                                <tr>
-                                    <td>Minat = "IPA"</td>
-                                    <td><?= $minatIPA; ?></td>
-                                    <td><?= $hasilIPAMinatIPA; ?></td>
-                                    <td><?= $hasilIPSMinatIPA; ?></td>
-                                    <td><?= $EntropyMinatIPA; ?></td>
-                                    <td rowspan="2">
-                                        <?= ($entropyAll) - (($minatIPA / $totalData) * $EntropyMinatIPA) - (($minatIPS / $totalData) * $EntropyMinatIPS); ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Minat = "IPS"</td>
-                                    <td><?= $minatIPS; ?></td>
-                                    <td><?= $hasilIPAMinatIPS; ?></td>
-                                    <td><?= $hasilIPSMinatIPS; ?></td>
-                                    <td><?= $EntropyMinatIPS; ?></td>
-                                </tr>
-                                <!-- End Miinat -->
-
-                                <!-- Nilai Matematika -->
-                                <tr>
-                                    <td>Nilai Matematika = "Rendah"</td>
-                                    <td><?= $NilaiMTKRendah; ?></td>
-                                    <td><?= $hasilMTKNilaiRendah; ?></td>
-                                    <td><?= $hasilIPSNilaiRendah; ?></td>
-                                    <td><?= $EntropyNilaiMTKRendah; ?></td>
-                                    <td rowspan="3">
-                                        <?= ($entropyAll) - (($NilaiMTKRendah / $totalData) * $EntropyNilaiMTKRendah) - (($NilaiMTKSedang / $totalData) * $EntropyNilaiMTKSedang); ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Nilai Matematika = "Sedang"</td>
-                                    <td><?= $NilaiMTKSedang; ?></td>
-                                    <td><?= $hasilIPANilaiSedang; ?></td>
-                                    <td><?= $hasilIPSNilaiSedang; ?></td>
-                                    <td><?= $EntropyNilaiMTKSedang; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Nilai Matematika = "Tinggi"</td>
-                                    <td><?= $NilaiMTKTinggi; ?></td>
-                                    <td><?= $hasilIPANilaiTinggi; ?></td>
-                                    <td><?= $hasilIPSNilaiTinggi; ?></td>
-                                    <td>
-                                        <?php
-                                        if (is_nan($EntropyNilaiMTKTinggi) || is_infinite($EntropyNilaiMTKTinggi)) {
-                                            echo "0";
-                                        } else {
-                                            $EntropyNilaiMTKTinggi;
-                                        }
-                                        ?>
-                                    </td>
-                                </tr>
-                                <!-- End Nilai Matematika -->
-
-                                <!-- Nilai IPA -->
-                                <tr>
-                                    <td>Nilai IPA = "Rendah"</td>
-                                    <td><?= $NilaiIPARendah; ?></td>
-                                    <td><?= $hasilIPANilaiRendah; ?></td>
-                                    <td><?= $hasilIPSNilaiRendah; ?></td>
-                                    <td><?= $EntropyNilaiIPARendah; ?></td>
-                                    <td rowspan="3">
-                                        <?= ($entropyAll) - (($NilaiIPARendah / $totalData) * $EntropyNilaiIPARendah) - (($NilaiIPASedang / $totalData) * $EntropyNilaiIPASedang); ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Nilai IPA = "Sedang"</td>
-                                    <td><?= $NilaiIPASedang; ?></td>
-                                    <td><?= $hasilIPANilaiSedang; ?></td>
-                                    <td><?= $hasilIPSNilaiSedang; ?></td>
-                                    <td><?= $EntropyNilaiIPASedang; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Nilai IPA = "Tinggi"</td>
-                                    <td><?= $NilaiIPAinggi; ?></td>
-                                    <td><?= $hasilIPANilaiTinggi; ?></td>
-                                    <td><?= $hasilIPSNilaiTinggi; ?></td>
-                                    <td>
-                                        <?php
-                                        if (is_nan($EntropyNilaiIPAinggi) || is_infinite($EntropyNilaiIPAinggi)) {
-                                            echo "0";
-                                        } else {
-                                            $EntropyNilaiIPAinggi;
-                                        }
-                                        ?>
-                                    </td>
-                                </tr>
-                                <!-- End Nilai IPA -->
-
-                                <!-- Nilai IPS -->
-                                <tr>
-                                    <td>Nilai IPS = "Rendah"</td>
-                                    <td><?= $NilaiIPSRendah; ?></td>
-                                    <td><?= $hasilIPANilaiRendah; ?></td>
-                                    <td><?= $hasilIPSNilaiRendah; ?></td>
-                                    <td><?= $EntropyNilaiIPSRendah; ?></td>
-                                    <td rowspan="3">
-                                        <?= ($entropyAll) - (($NilaiIPSRendah / $totalData) * $EntropyNilaiIPSRendah) - (($NilaiIPSSedang / $totalData) * $EntropyNilaiIPSSedang); ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Nilai IPS = "Sedang"</td>
-                                    <td><?= $NilaiIPSSedang; ?></td>
-                                    <td><?= $hasilIPANilaiSedang; ?></td>
-                                    <td><?= $hasilIPSNilaiSedang; ?></td>
-                                    <td><?= $EntropyNilaiIPSSedang; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Nilai IPS = "Tinggi"</td>
-                                    <td><?= $NilaiIPSinggi; ?></td>
-                                    <td><?= $hasilIPANilaiTinggi; ?></td>
-                                    <td><?= $hasilIPSNilaiTinggi; ?></td>
-                                    <td>
-                                        <?php
-                                        if (is_nan($EntropyNilaiIPSinggi) || is_infinite($EntropyNilaiIPSinggi)) {
-                                            echo "0";
-                                        } else {
-                                            $EntropyNilaiIPSinggi;
-                                        }
-                                        ?>
-                                    </td>
-                                </tr>
-                                <!-- End Nilai IPS -->
-
+                                <tbody>
+                                    <?php
+                                    $sql = mysqli_query($conn, "SELECT * FROM mining_c45");
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                    ?>
+                                        <tr>
+                                            <td><?= $row["atribut"]; ?></td>
+                                            <td><?= $row["nilai_atribut"]; ?></td>
+                                            <td><?= $row["jml_kasus_total"]; ?></td>
+                                            <td><?= $row["jml_ipa"]; ?></td>
+                                            <td><?= $row["jml_ips"]; ?></td>
+                                            <td><?= $row["entropy"]; ?></td>
+                                            <td><?= $row["gain_ratio"]; ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->

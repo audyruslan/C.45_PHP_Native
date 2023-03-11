@@ -37,7 +37,7 @@ require 'layouts/sidebar.php';
         <div class="container-fluid">
             <div class="card table-responsive card-outline card-secondary">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary ml-2 mt-3 mb-3" data-toggle="modal" data-target="#tambahModal">
                             Tambah Data

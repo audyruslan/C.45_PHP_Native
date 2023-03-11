@@ -1,6 +1,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-      <strong>Copyright &copy; <?= date("Y"); ?> <a href="https://www.banua-software.com/">www.banua-software.com</a>.</strong>
+      <strong>Copyright &copy; <?= date("Y"); ?> <a
+              href="https://www.banua-software.com/">www.banua-software.com</a>.</strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
           <b>Version</b> 0.1
@@ -59,211 +60,234 @@
   <?php
     if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
     ?>
-      <script>
-          Swal.fire({
-              title: '<?= $_SESSION['status'];  ?>',
-              icon: '<?= $_SESSION['status_icon'];  ?>',
-              text: '<?= $_SESSION['status_info'];  ?>'
-          });
-      </script>
+  <script>
+Swal.fire({
+    title: '<?= $_SESSION['status'];  ?>',
+    icon: '<?= $_SESSION['status_icon'];  ?>',
+    text: '<?= $_SESSION['status_info'];  ?>'
+});
+  </script>
   <?php
         unset($_SESSION['status']);
     }
     ?>
   <script>
-      $(document).ready(function() {
-          // Summernote
-          $('#det_post').summernote();
-          $('#srn_post').summernote();
-          $('#Edet_post').summernote();
-          $('#Esrn_post').summernote();
+$(document).ready(function() {
+    // Summernote
+    $('#det_post').summernote();
+    $('#srn_post').summernote();
+    $('#Edet_post').summernote();
+    $('#Esrn_post').summernote();
 
-          // DataTable
-          $('#trainingTable').DataTable({
-              "paging": true,
-              "lengthChange": false,
-              "searching": false,
-              "ordering": true,
-              "responsive": false,
-              "info": true,
-              "language": {
-                  url: 'assets/json/id.json'
-              }
-          });
+    // DataTable
+    $('#trainingTable').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "responsive": false,
+        "info": true,
+        "language": {
+            url: 'assets/json/id.json'
+        }
+    });
 
-          $('#raportTable').DataTable();
-      });
+    $('#raportTable').DataTable();
+});
 
-      // Hapus Admin
-      $(document).on('click', '.hapus_admin', function(e) {
+// Tambah Atribut
+$(document).on('click', '.tambah_atribut', function(e) {
 
-          e.preventDefault();
-          var href = $(this).attr('href');
+    e.preventDefault();
+    var href = $(this).attr('href');
 
-          Swal.fire({
-              title: 'Apakah Anda Yakin?',
-              text: "Data Admin!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Hapus Data!'
-          }).then((result) => {
-              if (result.value) {
-                  document.location.href = href;
-              }
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Menambahkan Data Atribut!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Tambah Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
 
-          })
+    })
 
-      });
+});
 
-      // Hapus Data Training
-      $(document).on('click', '.hapus_training', function(e) {
+// Hapus Admin
+$(document).on('click', '.hapus_admin', function(e) {
 
-          e.preventDefault();
-          var href = $(this).attr('href');
+    e.preventDefault();
+    var href = $(this).attr('href');
 
-          Swal.fire({
-              title: 'Apakah Anda Yakin?',
-              text: "Data Training!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Hapus Data!'
-          }).then((result) => {
-              if (result.value) {
-                  document.location.href = href;
-              }
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Data Admin!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
 
-          })
+    })
 
-      });
+});
 
-      // Hapus Kondisi
-      $(document).on('click', '.hapus_kondisi', function(e) {
+// Hapus Data Training
+$(document).on('click', '.hapus_training', function(e) {
 
-          e.preventDefault();
-          var href = $(this).attr('href');
+    e.preventDefault();
+    var href = $(this).attr('href');
 
-          Swal.fire({
-              title: 'Apakah Anda Yakin?',
-              text: "Data Kondisi!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Hapus Data!'
-          }).then((result) => {
-              if (result.value) {
-                  document.location.href = href;
-              }
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Data Training!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
 
-          })
+    })
 
-      });
+});
 
-      // Hapus Penduduk
-      $(document).on('click', '.hapus_penduduk', function(e) {
+// Hapus Kondisi
+$(document).on('click', '.hapus_kondisi', function(e) {
 
-          e.preventDefault();
-          var href = $(this).attr('href');
+    e.preventDefault();
+    var href = $(this).attr('href');
 
-          Swal.fire({
-              title: 'Apakah Anda Yakin?',
-              text: "Data Penduduk!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Hapus Data!'
-          }).then((result) => {
-              if (result.value) {
-                  document.location.href = href;
-              }
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Data Kondisi!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
 
-          })
+    })
 
-      });
+});
 
-      // Hapus Kelas
-      $(document).on('click', '.hapus_kelas', function(e) {
+// Hapus Penduduk
+$(document).on('click', '.hapus_penduduk', function(e) {
 
-          e.preventDefault();
-          var href = $(this).attr('href');
+    e.preventDefault();
+    var href = $(this).attr('href');
 
-          Swal.fire({
-              title: 'Apakah Anda Yakin?',
-              text: "Data Kelas!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Hapus Data!'
-          }).then((result) => {
-              if (result.value) {
-                  document.location.href = href;
-              }
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Data Penduduk!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
 
-          })
+    })
 
-      });
+});
 
-      // Hapus Data Latih
-      $(document).on('click', '.hapus_datalatih', function(e) {
+// Hapus Kelas
+$(document).on('click', '.hapus_kelas', function(e) {
 
-          e.preventDefault();
-          var href = $(this).attr('href');
+    e.preventDefault();
+    var href = $(this).attr('href');
 
-          Swal.fire({
-              title: 'Apakah Anda Yakin?',
-              text: "Data Latih!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Hapus Data!'
-          }).then((result) => {
-              if (result.value) {
-                  document.location.href = href;
-              }
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Data Kelas!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
 
-          })
+    })
 
-      });
+});
 
-      // Hapus Hasil Riwayat
-      $(document).on('click', '.hapus_riwayat', function(e) {
+// Hapus Data Latih
+$(document).on('click', '.hapus_datalatih', function(e) {
 
-          e.preventDefault();
-          var href = $(this).attr('href');
+    e.preventDefault();
+    var href = $(this).attr('href');
 
-          Swal.fire({
-              title: 'Apakah Anda Yakin?',
-              text: "Data Hasil Riwayat!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Hapus Data!'
-          }).then((result) => {
-              if (result.value) {
-                  document.location.href = href;
-              }
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Data Latih!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
 
-          })
+    })
 
-      });
+});
+
+// Hapus Hasil Riwayat
+$(document).on('click', '.hapus_riwayat', function(e) {
+
+    e.preventDefault();
+    var href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Data Hasil Riwayat!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+
+    })
+
+});
   </script>
   <script>
-      $(function() {
-          /*
-           * DONUT CHART
-           * -----------
-           */
+$(function() {
+    /*
+     * DONUT CHART
+     * -----------
+     */
 
 
-          <?php
+    <?php
             $hasilg = mysqli_query($conn, "SELECT hasil_id, count(hasil_id) jlh_id FROM hasil group by hasil_id ORDER BY jlh_id desc");
             while ($rg = mysqli_fetch_array($hasilg)) {
                 if ($rg[0] > 0) {
@@ -271,50 +295,50 @@
                 }
             }
             ?>
-          var donutData = <?php echo json_encode($arr); ?>
+    var donutData = <?php echo json_encode($arr); ?>
 
-          function legendFormatter(label, series) {
-              return '<div class="text text-muted">' + label + ' ' + Math.round(series.percent) + '%';
-          };
+    function legendFormatter(label, series) {
+        return '<div class="text text-muted">' + label + ' ' + Math.round(series.percent) + '%';
+    };
 
-          $.plot('#donut-chart', donutData, {
-              series: {
-                  pie: {
-                      show: true,
-                      radius: 1,
-                      innerRadius: 0.3,
-                      label: {
-                          show: true,
-                          radius: 2 / 3,
-                          formatter: function(label, series) {
-                              return '<div class="badge bg-navy color-pallete">' + Math.round(series
-                                  .percent) + '%</div>';
-                          },
-                          threshold: 0.1
-                      }
+    $.plot('#donut-chart', donutData, {
+        series: {
+            pie: {
+                show: true,
+                radius: 1,
+                innerRadius: 0.3,
+                label: {
+                    show: true,
+                    radius: 2 / 3,
+                    formatter: function(label, series) {
+                        return '<div class="badge bg-navy color-pallete">' + Math.round(series
+                            .percent) + '%</div>';
+                    },
+                    threshold: 0.1
+                }
 
-                  }
-              },
-              legend: {
-                  show: false
-              }
-          })
-          /*
-           * END DONUT CHART
-           */
+            }
+        },
+        legend: {
+            show: false
+        }
+    })
+    /*
+     * END DONUT CHART
+     */
 
-      })
+})
 
-      /*
-       * Custom Label formatter
-       * ----------------------
-       */
-      function labelFormatter(label, series) {
-          return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">' +
-              label +
-              '<br>' +
-              Math.round(series.percent) + '%</div>'
-      }
+/*
+ * Custom Label formatter
+ * ----------------------
+ */
+function labelFormatter(label, series) {
+    return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">' +
+        label +
+        '<br>' +
+        Math.round(series.percent) + '%</div>'
+}
   </script>
   </body>
 

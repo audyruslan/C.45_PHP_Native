@@ -14,6 +14,14 @@ function query($query)
     return $rows;
 }
 
+// Hapus Data Atribut
+function hapus_atribut($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM tb_atribut WHERE id = '$id'");
+    return mysqli_affected_rows($conn);
+}
+
 // Hapus Data Training
 function hapus_training($id)
 {
