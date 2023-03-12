@@ -92,7 +92,66 @@ $(document).ready(function() {
         }
     });
 
+    // DataTable
+    $('#miningTable').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "responsive": false,
+        "info": true,
+        "language": {
+            url: 'assets/json/id.json'
+        }
+    });
+
     $('#raportTable').DataTable();
+});
+
+// Proses Mining
+$(document).on('click', '.proses_mining', function(e) {
+
+    e.preventDefault();
+    var href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Proses Perhitungan C.45!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Proses Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+
+    })
+
+});
+
+// Hapus Proses Mining
+$(document).on('click', '.hapus_proses_mining', function(e) {
+
+    e.preventDefault();
+    var href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Apakah Anda Yakin?',
+        text: "Hapus Perhitungan C.45!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus Data!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+
+    })
+
 });
 
 // Tambah Atribut

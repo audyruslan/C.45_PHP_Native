@@ -38,17 +38,21 @@ require 'layouts/sidebar.php';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <a class="btn btn-primary tambah_atribut mb-3" href="atribut/tambah.php"><i class="fas fa-plus-circle"></i> Data Atribut!</a>
+                    <a class="btn btn-primary tambah_atribut mb-3" href="atribut/tambah.php"><i
+                            class="fas fa-plus-circle"></i> Data Atribut!</a>
 
                 </div>
             </div>
             <div class="card table-responsive card-outline card-secondary p-3">
                 <div class="row">
                     <div class="col-12">
-                        <a class="btn btn-primary tambah_atribut mt-2 mb-3" href="training/hapus.php"><i class="fas fa-plus-circle"></i> Proses Mining</a>
-                        <a class="btn btn-danger tambah_atribut mt-2 mb-3" href="training/hapus.php"><i class="fas fa-trash"></i> Hapus Data</a>
+                        <a class="btn btn-primary proses_mining mt-2 mb-3" href="algoritma/algoritma.php"><i
+                                class="fas fa-plus-circle"></i> Proses Mining</a>
+                        <a class="btn btn-danger hapus_proses_mining mt-2 mb-3"
+                            href="algoritma/hapus_perhitungan.php"><i class="fas fa-trash"></i> Hapus Data</a>
 
-                        <table class="table table-bordered table-hover" id="trainingTable" style="width:100%" cellspacing="0">
+                        <table class="table table-bordered table-hover" id="trainingTable" style="width:100%"
+                            cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -61,13 +65,13 @@ require 'layouts/sidebar.php';
                             $sql = mysqli_query($conn, "SELECT * FROM tb_atribut");
                             while ($row = mysqli_fetch_assoc($sql)) {
                             ?>
-                                <tr>
-                                    <td><?= $i; ?></td>
-                                    <td><?= $row['atribut']; ?></td>
-                                    <td><?= $row['nilai_atribut']; ?></td>
-                                </tr>
+                            <tr>
+                                <td><?= $i; ?></td>
+                                <td><?= $row['atribut']; ?></td>
+                                <td><?= $row['nilai_atribut']; ?></td>
+                            </tr>
 
-                                <?php $i++; ?>
+                            <?php $i++; ?>
 
                             <?php
                             }

@@ -171,11 +171,13 @@ function perhitunganC45($atribut, $nilai_atribut)
 
                     //#12# Lakukan perhitungan split info
                     // rumus split info
+
                     $getSplitInfo = (($getJumlahKasusTotalEntropy / $getJumlahKasusTotalInfGain) * (log(($getJumlahKasusTotalEntropy / $getJumlahKasusTotalInfGain), 2)));
 
                     //#13# Update split info tiap nilai atribut (temporary)
                     // update split_info_temp (utk mencari nilai masing2 atribut)
                     mysqli_query($conn, "UPDATE mining_c45 SET split_info_temp = '$getSplitInfo' WHERE id = '$idEntropy'");
+
 
                     // jumlahkan masing2 split_info_temp dari tiap atribut 
                     $sqlAtributSplitInfo = mysqli_query($conn, "SELECT SUM(split_info_temp) as split_info FROM mining_c45 WHERE atribut = '$getAtribut'");

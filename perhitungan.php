@@ -14,7 +14,6 @@ $query = mysqli_query($conn, "SELECT * FROM admin WHERE username = '$user'");
 $admin = mysqli_fetch_assoc($query);
 
 require 'layouts/sidebar.php';
-include 'algoritma.php';
 ?>
 
 <div class="content-wrapper">
@@ -41,6 +40,14 @@ include 'algoritma.php';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
+                    <?php
+                    // Total Data
+                    $totalData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training"));
+                    $totalIPA = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE hasil = 'IPA'"));
+                    $totalIPS = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_training WHERE hasil = 'IPS'"));
+                    $entropyAll = (-$totalIPA / $totalData) * log($totalIPA / $totalData, 2) + (-$totalIPS / $totalData) * log($totalIPS / $totalData, 2);
+
+                    ?>
                     <h6>Jumlah Data = <?= $totalData; ?></h6>
                     <h6>Jumlah IPA = <?= $totalIPA; ?></h6>
                     <h6>Jumlah IPS = <?= $totalIPS; ?></h6>
@@ -49,7 +56,7 @@ include 'algoritma.php';
                     </h6>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Tabel Keputusan</h3>
+                            <h3 class="card-title">Tabel Perhitungan</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-3">
@@ -68,7 +75,7 @@ include 'algoritma.php';
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql = mysqli_query($conn, "SELECT * FROM mining_c45");
+                                    $sql = mysqli_query($conn, "SELECT * FROM iterasi_c45");
                                     while ($row = mysqli_fetch_array($sql)) {
                                     ?>
                                         <tr>
